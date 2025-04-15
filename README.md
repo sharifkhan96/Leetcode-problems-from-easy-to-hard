@@ -6,10 +6,6 @@ this repo will contain the leetcode problems &amp; their solutions from easy to 
 
 ------------------------------------------Leetcode---------------------------------------
 
-![image](https://github.com/user-attachments/assets/5a8510da-7f8d-453d-8ba3-823362def236)
-
-------------------------------------------Leetcode---------------------------------------
-
 ![image](https://github.com/user-attachments/assets/797956f6-4e98-4cfe-9680-ceac7c52fa76)
 
 ------------------------------------------Leetcode---------------------------------------
