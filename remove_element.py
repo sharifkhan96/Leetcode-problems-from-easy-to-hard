@@ -19,7 +19,7 @@ class Solution:
         
         
 def main():
-    nums = [3,2,2,3,4,5]
+    nums = nums = [3,2,2,3] #[3,2,2,3,4,5]
     val = 3
     obj1 = Solution()
     k, filtered_array = obj1.removeElement(nums, val)
