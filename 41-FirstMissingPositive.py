@@ -3,9 +3,14 @@ class Solution:
         n = len(nums)
 
         # step1 : plcaing each number in its correct positions
-        for i in range(n):
-            while 1 <= nums[i] <= n and nums[nums[i] -1] != nums[i]:
-                nums[i], nums[nums[i] -1] = nums[nums[i]-1], nums[i]
+        i = 0
+        while i < n:
+            correct_index = nums[i] - 1
+            
+            if 1 <= nums[i] <= n and nums[correct_index] != nums[i]:
+                nums[i], nums[correct_index] = nums[correct_index], nums[i]
+            else:
+                i += 1
 
 
         # step 2: finding the first index where nums[i] != i+1:
@@ -13,7 +18,7 @@ class Solution:
             if nums[i] != i +1 :
                 return i + 1 
 
-        return n + 1 
+        return n + 1
 
         
 #time comnp:O(n)
