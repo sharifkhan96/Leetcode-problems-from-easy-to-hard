@@ -20,7 +20,7 @@ def main():
    nums = [-1,0,3,5,9,12]
    target = 9
    obj = Solution()
-   print(obj.findMaxConsecutiveOnes(nums, target))
+   print(obj.search(nums, target))
 
 
 if __name__ == "__main__":
