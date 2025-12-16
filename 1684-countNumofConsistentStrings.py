@@ -1,5 +1,9 @@
 class Solution:
     def countConsistentStrings(self, allowed: str, words: list[str]) -> int:
+        
+        # allowed = set(allowed)
+        # return sum(all(c in allowed for c in word) for word in words)
+
         allowed_set = set(allowed)
         count = 0
 
