@@ -13,6 +13,21 @@ Output: ["a1b2","a1B2","A1b2","A1B2"]
 
 class Solution:
     def letterCasePermutation(self, s: str) -> list[str]:
+        output = [""]
+        for c in s:
+            temp = []
+            if c.isalpha():
+                for o in output:
+                    temp.append(o+c.lower())
+                    temp.append(o+c.upper())
+            else:
+                for o in output:
+                    temp.append(o + c)
+            output = temp
+
+        return output
+        
+        '''
         result = []
         
         def backtrack(index, path):
@@ -29,10 +44,11 @@ class Solution:
             
     
         backtrack(0, "")
-        return result
+        return result 
+        '''
 
-# time comp: 
-# space comp: 
+# time comp: O(2^k)
+# space comp: O(2^k)
 
 
 
