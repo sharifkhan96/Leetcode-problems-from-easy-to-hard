@@ -11,7 +11,23 @@ class Solution:
     # time comp: o(n)
     # space com: O(1)
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
-            
+
+            # recursive solution
+            # base case:
+            if head is None or head.next is None:
+                return head
+            # step one: reversign the rest of the list
+            new_head = self.reverseList(head.next)
+
+            # step two: fixing the current cnode
+            head.next.next = head
+            head.next = None
+
+            return new_head
+        # time & spce complexities: O(N)            
+
+
+            '''
             current = head
             if not current:
                 return
@@ -24,7 +40,8 @@ class Solution:
                 
             head = previous
             return head
-    
+            '''
+
     
     def create_linked_list(self, values: list[int]) -> Optional[ListNode]:
     #Helper function to create a linked list from a list of values
