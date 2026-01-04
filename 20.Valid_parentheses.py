@@ -1,21 +1,29 @@
 class Solution:
+
     def isValid(self, s: str) -> bool:
         
         stack1 = []
-        bracket_map = {')': '(', ']': '[', '}': '{'}
+        hashmap1 = {')': '(', ']': '[', '}': '{'}
         
-
-        for char in s:
-            if char in bracket_map.values():
-                stack1.append(char)
-            elif char in bracket_map:
-                if not stack1 != bracket_map[char]:
-                    return False
+        for element in s:
+            if stack1 and (element in hashmap1 and stack1[-1] == hashmap1[element]):
                 stack1.pop()
             else:
-                continue
+                stack1.append(element)
 
-        return len(stack1) == 0
+        return not stack1
+
+        # for char in s:
+        #     if char in hashmap1.values():
+        #         stack1.append(char)
+        #     elif char in bracket_map:
+        #         if not stack1 != hashmap1[char]:
+        #             return False
+        #         stack1.pop()
+        #     else:
+        #         continue
+
+        # return len(stack1) == 0
 
 
 # time: o(n)
