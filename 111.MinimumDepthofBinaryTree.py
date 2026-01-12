@@ -12,7 +12,7 @@ class Solution:
         if not root:
             return 0
         
-        queue = deque([root], 1) # node and depth
+        queue = deque([(root, 1)]) # node and depth
 
         while queue:
             node, depth = queue.popleft()
@@ -26,7 +26,7 @@ class Solution:
 
         
 
-
+# time & space complexity: O(N) & O(W) #max width of a tree
 
     
 def main():
