@@ -7,6 +7,27 @@ class TreeNode:
 
 class Solution:
     def isSameTree(self, p: TreeNode, q: TreeNode) -> bool:
+
+        # iterative solution: 
+        # time & space complexities: O(N) & O(H), worst case O(N) respectively
+        stack = [(p, q)]
+
+        while stack:
+            node1, node2 = stack.pop()
+            if not node1 and not node2:
+                continue
+            elif None in (node1, node2) or node1.val != node2.val:
+                return False
+
+            stack.append((node1.right, node2.right))
+            stack.append((node1.left, node2.left))
+
+        return True
+
+
+        '''
+        # recursive solutionnnnnnn
+        
         # Case 1: both are None → same
         if not p and not q:
             return True
@@ -21,6 +42,9 @@ class Solution:
         
         # Case 4: check left subtree and right subtree recursively
         return self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
+
+        '''
+        
 
 
 def main():
