@@ -1,12 +1,12 @@
 # Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+class TreeNode:
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
 
 class Solution:
-    def lowestCommonAncestor(self, root, p q) -> 'TreeNode':
+    def lowestCommonAncestor(self, root, p, q) -> 'TreeNode':
         if not root:
             return None
 
@@ -24,20 +24,26 @@ class Solution:
         # Otherwise, return whichever side found p or q (or None)
         return left if left else right
 
+# time and space complexity: O(N) & O(H) where H is the height of the tree 
 
 
 def main():
 
-    #root = [3,5,1,6,2,0,8,null,null,7,4],
+    root = TreeNode(3)
+    #root.left = TreeNode(5)
+    #root.right = TreeNode(1)
+    node5 = TreeNode(5)
+    node1 = TreeNode(1)
 
-    root = Solution(3)
-    root.left = Solution(5)
-    root.right = Solution(1)
+    root.left = node5
+    root.right = node1
 
-    p = 5
-    q = 1
+    p = node5
+    q = node1
     solution = Solution()
-    solution.lowestCommonAncestor(root, p, q)
+    lca = solution.lowestCommonAncestor(root, p, q)
+    print(lca.val)
+
 
 
 if __name__ == "__main__":
