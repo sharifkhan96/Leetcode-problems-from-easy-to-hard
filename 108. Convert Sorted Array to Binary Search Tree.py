@@ -37,6 +37,26 @@ class Solution:
             #     root = root.left if val < root.val else root.right
             # return None
 
+    def inorder(self, root):
+        if not root:
+            return []
+        return self.inorder(root.left) + [root.val] + self.inorder(root.right)
+
+
+    def isValidBST(self, root, low=float("-inf"), high=float("inf")):
+        if not root:
+            return True
+
+        if not (low < root.val < high):
+            return False
+
+        return (
+            self.isValidBST(root.left, low, root.val) and
+            self.isValidBST(root.right, root.val, high)
+        )
+
+
+
 
 def main():
     nums = [-10, -3, 0, 5, 9]
@@ -45,15 +65,15 @@ def main():
     obj = Solution()
     root = obj.sortedArrayToBST(nums)
 
-    # 1. Confirm BST via inorder
-    print("Inorder traversal:", inorder(root))
+    # 1. confirming BST via inorder
+    print("Inorder traversal:", obj.inorder(root))
 
-    # 2. Confirm value exists
+    # 2. confirming value exists
     found = obj.searchBST(root, val)
     print("Value found:", found.val if found else "Not found")
 
-    # 3. Validate BST formally
-    print("Is valid BST:", isValidBST(root))
+    # 3. validdating BST formally
+    print("Is valid BST:", obj.isValidBST(root))
 
 
 
