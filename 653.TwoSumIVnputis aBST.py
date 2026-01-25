@@ -1,4 +1,5 @@
 from typing import Optional
+from collections import deque
 # Definition for a binary tree node.
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
@@ -7,6 +8,25 @@ class TreeNode:
         self.right = right
 class Solution:
     def findTarget(self, root: Optional[TreeNode], k: int) -> bool:
+
+        queue = deque([root])
+        num_set = set()
+
+        while queue:
+            node = queue.popleft()
+
+            if (k - node.val) in num_set:
+                return True
+            
+            num_set.add(node.val)
+            if node.left:
+                queue.append(node.left)
+            if node.right:
+                queue.append(node.right)
+        return False
+
+
+        '''
         seen = set()
 
         def dfs(node):
@@ -20,7 +40,7 @@ class Solution:
             return dfs(node.left) or dfs(node.right)
 
         return dfs(root)
-        
+        '''        
 # Time: O(n)
 # Space: O(n) (hash set + recursion stack)
 
