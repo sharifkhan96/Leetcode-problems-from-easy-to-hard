@@ -61,23 +61,40 @@ class Solution:
 
 def main():
     
-    root = TreeNode(9)
+    root = TreeNode(1)
     #root.left = TreeNode(5)
     #root.right = TreeNode(1)
-    node11 = TreeNode(11)
-    node7 = TreeNode(7)
-    node8 = TreeNode(8)
     node2 = TreeNode(2)
+    node3 = TreeNode(3)
+    node4 = TreeNode(4)
 
-    root.left = node7
-    root.right = node11
 
-    root.left.left = node2
-    root.left.right = node8
+    root.right = node2
+    root.right.right = node3
+
+    root.right.right.right = node4
 
     solution = Solution()
 
-    solution.balanceBST(root)
+    # state = False
+    # if root.left:
+    #     state = True
+    # else:
+    #     state = False
+    # print(state)
+
+    print("Bfore balancing the BST, root.left exist? ", bool(root.left))
+    print("Tree is balance? ", bool(root.left))
+
+    root = solution.balanceBST(root)
+
+    # if root.left:
+    #     state = True
+    # else:
+    #     state = False
+    # print(state)
+    print("Bfore balancing the BST, root.left exist? ", bool(root.left))
+    print("Tree is balance? ", bool(root.left))
 
 
 if __name__ == "__main__":
