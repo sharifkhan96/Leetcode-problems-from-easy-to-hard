@@ -23,6 +23,22 @@ class Solution:
         inorder.append(root.val)
         self.inorder_traversal(root.right, inorder)
 
+
+    '''
+    instead of inorder_traversal fun, you can just do:
+    inorder = []
+        def dfs(node):
+            if node is None:
+                return
+            
+            inorder.append(node.val)
+            dfs(node.left)
+            dfs(node.right)
+
+        dfs(root)
+        inorder.sort()
+    '''
+
     def create_balanced_bst(
         self, inorder: list, start: int, end: int
     ) -> TreeNode:
@@ -41,7 +57,7 @@ class Solution:
         node = TreeNode(inorder[mid], left_subtree, right_subtree)
         return node
 
-
+# time and space complexities: O(n) fro traversing and O(n) for stroing bst values in the array
 
 def main():
     
