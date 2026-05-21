@@ -13,6 +13,15 @@ class Solution:
 
         return True
     
+    # Greedy solution: works way backward...
+    def canJumpGreedy(self, nums: list[int]) -> bool:
+        goal = len(nums) - 1
+        
+        for i in range(len(nums) - 1, -1, -1):
+            if i + nums[i] >= goal:
+                goal = i
+        return True if goal == 0 else False
+    
 
 # time comp: O(N)
 # space comp: O(1)
@@ -20,7 +29,9 @@ class Solution:
 class main():
     nums = [2,3,1,1,4]   
     obj1 = Solution()
-    print(obj1.canJump(nums))
+    #print(obj1.canJump(nums))
+    print(obj1.canJumpGreedy(nums))
+
 
 
 
