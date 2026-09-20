@@ -27,7 +27,39 @@ class Solution:
         '''
 
         # dp solution
-        return "heheh"
+        #return "heheh"
+        n = len(string)
+
+        dp = [[False] * n for _ in range(n)]
+
+        start = 0
+        max_length = 1
+
+        for right in range(n):
+            for left in range(right + 1):
+
+                # check if left & right are equal
+                if string[left] == string[right]:
+
+                    # len is either 1 or 2 or 3
+                    if right - left <= 2:
+                        dp[left][right] = True
+                    # inc left & dec right
+                    else:
+                        dp[left][right] = dp[left + 1][right - 1]
+                
+                # update longest palidnrom
+                if dp[left][right]:
+                    length = right - left + 1
+
+                if length > max_length:
+                    max_length = length
+                    start = left
+
+        return string[start: start+max_length]
+
+    # time complexity: O(n^2)
+    # space complexity: O(n^2)
 
 
 def main():
